@@ -33,5 +33,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/imtek-simulation/docker4teaching:${{ github.ref_name }}
+          tags: ghcr.io/${{ github.actor }}/docker-4-teaching:${{ github.ref_name }}
           platforms: linux/arm64,linux/amd64
