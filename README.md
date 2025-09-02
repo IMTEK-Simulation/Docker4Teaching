@@ -21,7 +21,7 @@ Neben diesem Docker Image gibt es auch [andere](#alternatives) Möglichkeiten Ju
    ```yaml
    services:
      web:
-       image: ghcr.io/flemk/docker-4-teaching:latest-dev  # Das Docker Image
+       image: ghcr.io/flemk/docker-4-teaching:latest  # Das Docker Image
        ports:
          - "8888:8888"  # Port auf dem JupyterLab läuft
        volumes:
