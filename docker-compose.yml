@@ -1,0 +1,7 @@
+services:
+  web:
+    image: ghcr.io/flemk/docker-4-teaching:latest-dev  # Das Docker Image
+    ports:
+      - "8888:8888"  # Port auf dem JupyterLab läuft
+    volumes:
+      - ./notebooks:/home/jovyan/work  # Verzeichnis für Notebooks (wichtig!)
