@@ -1,5 +1,5 @@
 # Docker4Teaching
-Ein Docker Image für Vorlesungen des *Lehrstuhls für Simulationstechniken* der Uni Freiburg.
+Ein Docker Image für Vorlesungen der *Professur für Simulation* der Technischen Fakultät der Albert-Ludwigs-Universität Freiburg.
 
 Dieses Docker Image stellt die JupyterLab Entwicklungsumgebung mit den notwendingen Libraries zur Verfügung.
 
