@@ -1,23 +1,28 @@
 FROM jupyter/base-notebook:latest
 
-LABEL org.opencontainers.image.source=https://github.com/IMTEK-Simulation/Docker4Teching
+LABEL org.opencontainers.image.source=https://github.com/IMTEK-Simulation/Docker4Teaching
 
 USER root
 
-# install system dependencies here
-# RUN apt-get update && apt-get install -y build-essential git
-
-RUN pip install --no-cache-dir \
+RUN conda install -c conda-forge --yes \
     numpy \
     pandas \
     matplotlib \
+    scipy \
     scikit-learn \
-    jupyterlab
+    fenics-dolfinx \
+    pyvista \
+    python-gmsh \
+    jupytext \
+    jupyterlab \
+    patsy \
+    pip \
+    && conda clean -afy
 
-# Set workdir and revert to non-root user used by jupyter images
 WORKDIR /home/jovyan/work
+
 USER $NB_UID
 
-# Expose notebook port and default command (image already has a start script)
 EXPOSE 8888
+
 CMD ["start-notebook.sh", "--NotebookApp.token=''"]
