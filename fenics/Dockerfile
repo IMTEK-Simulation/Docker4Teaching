@@ -4,10 +4,7 @@ LABEL org.opencontainers.image.source=https://github.com/IMTEK-Simulation/Docker
 
 USER root
 
-# Install mamba for faster package resolution
 RUN conda install -c conda-forge mamba --yes
-
-# Use mamba instead of conda for better memory usage
 RUN mamba install -c conda-forge --yes \
     numpy \
     pandas \
@@ -23,10 +20,9 @@ RUN mamba install -c conda-forge --yes \
     pip \
     && conda clean -afy
 
+    
+USER $NB_UID
 WORKDIR /home/jovyan/work
 
-USER $NB_UID
-
 EXPOSE 8888
-
 CMD ["start-notebook.sh", "--NotebookApp.token=''"]
