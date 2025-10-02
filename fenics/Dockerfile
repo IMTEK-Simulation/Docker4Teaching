@@ -1,28 +1,18 @@
-FROM jupyter/base-notebook:latest
+FROM quay.io/jupyter/datascience-notebook:hub-5.2.1
 
 LABEL org.opencontainers.image.source=https://github.com/IMTEK-Simulation/Docker4Teaching
 
 USER root
 
-RUN conda install -c conda-forge mamba --yes
+# See https://fenicsproject.org/download/ (conda did not work due to an parsing issue of a version wildcard)
 RUN mamba install -c conda-forge --yes \
-    numpy \
-    pandas \
-    matplotlib \
-    scipy \
-    scikit-learn \
     fenics-dolfinx \
-    pyvista \
-    python-gmsh \
-    jupytext \
-    jupyterlab \
-    patsy \
-    pip \
-    && conda clean -afy
+    mpich \
+    pyvista
 
-    
-USER $NB_UID
-WORKDIR /home/jovyan/work
+USER jovyan
 
-EXPOSE 8888
-CMD ["start-notebook.sh", "--NotebookApp.token=''"]
+#WORKDIR /home/jovyan/work
+
+#EXPOSE 8888
+#CMD ["start-notebook.sh", "--NotebookApp.token=''"]
