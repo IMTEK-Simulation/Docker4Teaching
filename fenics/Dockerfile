@@ -4,6 +4,9 @@ LABEL org.opencontainers.image.source=https://github.com/IMTEK-Simulation/Docker
 
 USER root
 
+RUN apt-get update
+RUN apt install -y xvfb
+
 # See https://fenicsproject.org/download/ (conda did not work due to an parsing issue of a version wildcard)
 RUN mamba install -c conda-forge --yes \
     fenics-dolfinx \
