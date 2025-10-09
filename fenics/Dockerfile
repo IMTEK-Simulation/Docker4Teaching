@@ -7,15 +7,9 @@ USER root
 RUN apt-get update
 RUN apt install -y xvfb
 
-# See https://fenicsproject.org/download/ (conda did not work due to an parsing issue of a version wildcard)
 RUN mamba install -c conda-forge --yes \
     fenics-dolfinx \
     mpich \
     pyvista
 
 USER jovyan
-
-#WORKDIR /home/jovyan/work
-
-#EXPOSE 8888
-#CMD ["start-notebook.sh", "--NotebookApp.token=''"]
