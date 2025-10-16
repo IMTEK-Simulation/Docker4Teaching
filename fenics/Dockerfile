@@ -11,11 +11,12 @@ RUN mamba install -c conda-forge --yes \
   mpich \
   pyvista
 
-# system deps for GL / GLFW / GLES / GLU
+# system deps for GL / GLFW / GLES / GLU / Xft
 RUN apt-get update && apt-get install -y --no-install-recommends \
   libglfw3-dev \
   libgles2-mesa-dev \
   libglu1-mesa \
+  libxft2 \
   && rm -rf /var/lib/apt/lists/*
 
 USER jovyan
