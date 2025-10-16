@@ -16,6 +16,7 @@ RUN apt update && apt install -y libglfw3-dev libgles2-mesa-dev
 USER jovyan
 RUN pip install pyvista[all] trame-jupyter-extension
 RUN pip install vtk
+RUN pip install gmsh
 
 WORKDIR /home/jovyan/work
 
