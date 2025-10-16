@@ -47,6 +47,6 @@ jobs:
           tags: |
             ghcr.io/${{ github.actor }}/docker-4-teaching-fenics:latest
             ghcr.io/${{ github.actor }}/docker-4-teaching-fenics:${{ github.ref_name }}
-          platforms: linux/arm64,linux/amd64
+          platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
