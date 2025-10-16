@@ -7,14 +7,19 @@ RUN apt-get update
 
 # See https://fenicsproject.org/download/ (conda did not work due to an parsing issue of a version wildcard)
 RUN mamba install -c conda-forge --yes \
-fenics-dolfinx \
-mpich \
-pyvista
+  fenics-dolfinx \
+  mpich \
+  pyvista
 
-RUN apt update && apt install -y libglfw3-dev libgles2-mesa-dev
+# system deps for GL / GLFW / GLES / GLU
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  libglfw3-dev \
+  libgles2-mesa-dev \
+  libglu1-mesa \
+  && rm -rf /var/lib/apt/lists/*
 
 USER jovyan
-RUN pip install pyvista[all] trame-jupyter-extension
+RUN pip install "pyvista[all]" trame-jupyter-extension
 RUN pip install vtk
 RUN pip install gmsh
 
